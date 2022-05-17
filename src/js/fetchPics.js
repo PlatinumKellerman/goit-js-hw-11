@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix';
-const axios = require('axios');
+import axios from 'axios';
 const BASE_URL = 'https://pixabay.com/api/';
 
 // https://pixabay.com/api/?key=27460109-f49525f14ce538ff6a08a8ab1&q=moon&image_type=photo
@@ -11,31 +11,25 @@ const options = {
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: true,
+        page: 1,
+        per_page: 40,
     },
 }
 
 export default async function getPic(inputValue) {
-    try {
         options.params.q = inputValue;
         const response = await axios.get(BASE_URL, options);
         if (response.data.totalHits > 0) {
-            Notify.success(`${inputValue} ` + "is find")
-        }
-        return response.data.hits
-    } catch (error) {
-    Notify.failure(error, "kshjfgusdygrfiuedhgoiuedryiudr")
+            Notify.success(`Hooray! We found ${response.data.totalHits} images.`)
+        } else {
+            Notify.failure("Sorry, there are no images matching your search query. Please try again.")
     }
+    console.log(response);
+        return response.data.hits
 }
 
-
-
-
-
-// var API_KEY = '27460109-f49525f14ce538ff6a08a8ab1';
-// var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
-// $.getJSON(URL, function(data){
-// if (parseInt(data.totalHits) > 0)
-//     $.each(data.hits, function(i, hit){ console.log(hit.pageURL); });
-// else
-//     console.log('No hits');
-// });
+export function pageCounter() {
+    const newPage = options.params.page
+    options.params.page =+ 1;
+    console.log(options.params.page);
+}

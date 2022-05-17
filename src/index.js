@@ -22,7 +22,7 @@ function onFormSubmit(e) {
         const markup = createPicsMarkup(pictures);
         refs.galleryWrapper.innerHTML = markup;
         })
-        clearInput();
+        // clearInput();
         } 
 
 
@@ -52,11 +52,27 @@ function createPicsMarkup(pictures) {
 }
 
 
-refs.loadMoreButton.addEventListener('click', options.pageCounter);
+refs.loadMoreButton.addEventListener('click', onLoadMoreButtonClick);
+
+function onLoadMoreButtonClick(e) {
+        e.preventDefault();
+        const inputValue = refs.input.value; 
+        options.params.page += 1;
+        const fetchPicsResult = options.getPic(inputValue);
+        fetchPicsResult.then(pictures => {
+        const markup = createPicsMarkup(pictures);
+        refs.galleryWrapper.innerHTML = markup;
+        })
+        // clearInput();
+        } 
 
 
-function clearInput() {
-    refs.form.reset();
-}
+
+
+
+
+// function clearInput() {
+//     refs.form.reset();
+// }
 
 

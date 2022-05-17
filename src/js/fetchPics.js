@@ -25,13 +25,7 @@ export const options = {
             Notify.failure("Sorry, there are no images matching your search query. Please try again.")
     }
         return response.data.hits
-    },
-    
-    pageCounter() {
-        options.params.page = options.params.page + 1;
-        
     }
-    
 }
 
 

@@ -1,7 +1,8 @@
 import './css/searchPicsStyles.css'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import getPic from './js/fetchPics.js';
-import { pageCounter } from './js/fetchPics';
+import { options } from './js/fetchPics.js'
+// import getPic from './js/fetchPics.js';
+// import { pageCounter } from './js/fetchPics';
 
 
 const refs = {
@@ -13,10 +14,10 @@ const refs = {
 }
 
 refs.form.addEventListener('submit', onFormSubmit);
-    function onFormSubmit(e) {
+function onFormSubmit(e) {
         e.preventDefault();
         const inputValue = refs.input.value;
-        const fetchPicsResult = getPic(inputValue);
+        const fetchPicsResult = options.getPic(inputValue);
         fetchPicsResult.then(pictures => {
         const markup = createPicsMarkup(pictures);
         refs.galleryWrapper.innerHTML = markup;
@@ -24,7 +25,6 @@ refs.form.addEventListener('submit', onFormSubmit);
         clearInput();
         } 
 
-refs.loadMoreButton.addEventListener('click', pageCounter);
 
 function createPicsMarkup(pictures) {
     return pictures.map((picture, index) => {
@@ -50,6 +50,9 @@ function createPicsMarkup(pictures) {
             `
     }).join('');
 }
+
+
+refs.loadMoreButton.addEventListener('click', options.pageCounter);
 
 
 function clearInput() {

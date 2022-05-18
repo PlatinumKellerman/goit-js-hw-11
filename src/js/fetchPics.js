@@ -20,7 +20,7 @@ export const options = {
         }   else if (response.data.totalHits === 0) {
             Notify.failure("Sorry, there are no images matching your search query. Please try again.")
         }   else if (response.data.hits.length < 40) {
-            Notify.failure("We're sorry, but you've reached the end of search results.")
+            Notify.warning("We're sorry, but you've reached the end of search results.")
         } 
         return response.data.hits
     }

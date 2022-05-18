@@ -1,10 +1,8 @@
 import './css/searchPicsStyles.css'
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { options } from './js/fetchPics.js';
-import createPicsMarkup from './js/createMarkup.js'
-// import getPic from './js/fetchPics.js';
-// import { pageCounter } from './js/fetchPics';
-
+import createPicsMarkup from './js/createMarkup.js';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const refs = {
     form: document.querySelector('#search-form'),
@@ -39,6 +37,12 @@ function onLoadMoreButtonClick(e) {
         })
         // clearInput();
         } 
+
+let gallery = new SimpleLightbox('.gallery a',
+    {
+        captionsData: "alt",
+        captionDelay: 250
+    });
 
 // function clearInput() {
 //     refs.form.reset();

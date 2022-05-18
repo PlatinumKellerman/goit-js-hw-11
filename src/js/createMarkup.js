@@ -4,6 +4,7 @@ export default function createPicsMarkup(pictures) {
             <div class="photo-card">
                 <a class="gallery__item" href="${picture.largeImageURL}">
                 <img src="${picture.webformatURL}" alt="${picture.tags}" loading="lazy" />
+                </a>
                 <div class="info">
                     <p class="info-item">
                     <b>Likes ${picture.likes}</b>

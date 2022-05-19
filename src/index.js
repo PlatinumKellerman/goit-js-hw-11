@@ -1,6 +1,7 @@
 import { Notify } from 'notiflix';
 import './css/searchPicsStyles.css'
 import { options } from './js/fetchPics.js';
+import galleryInitializer from './js/galleryInitializer.js'
 import createPicsMarkup from './js/createMarkup.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -18,18 +19,21 @@ refs.button.classList.add('isActive');
 
 refs.form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(e) {
-        e.preventDefault();
-            options.params.page = 1;
+    e.preventDefault();
+    options.params.page = 1;
         const inputValue = refs.input.value;
         const fetchPicsResult = options.getPic(inputValue);
-        fetchPicsResult.then(pictures => {
+    fetchPicsResult.then(pictures => {
         const markup = createPicsMarkup(pictures);
-            refs.galleryWrapper.innerHTML = markup;
+    refs.galleryWrapper.innerHTML = markup;
                 if (pictures.length === 40) {
                     refs.loadMoreButton.classList.remove('isHidden');
                     refs.loadMoreButton.classList.add('isActive');
             }
-        })
+    }).then(result => {
+        galleryInitializer();
+    })
+
     } 
 
 refs.loadMoreButton.addEventListener('click', onLoadMoreButtonClick);
@@ -46,13 +50,7 @@ function onLoadMoreButtonClick(e) {
                 Notify.warning("We're sorry, but you've reached the end of search results.")
                 refs.loadMoreButton.classList.remove('isActive');
             }
-        })
+        }).then(result => {
+            galleryInitializer();
+    })
         } 
-
-let gallery = new SimpleLightbox('.gallery a',
-    {
-        captionsData: "alt",
-        captionDelay: 250
-    }
-);
-

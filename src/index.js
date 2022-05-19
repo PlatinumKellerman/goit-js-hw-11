@@ -9,7 +9,8 @@ const refs = {
     input: document.querySelector('input[name="searchQuery"]'),
     button: document.querySelector('button'),
     loadMoreButton: document.querySelector('.load-more'),
-    galleryWrapper: document.querySelector('.gallery')
+    galleryWrapper: document.querySelector('.gallery'),
+    isHidden: true,
 }
 
 refs.form.addEventListener('submit', onFormSubmit);
@@ -42,7 +43,8 @@ let gallery = new SimpleLightbox('.gallery a',
     {
         captionsData: "alt",
         captionDelay: 250
-    });
+    }
+);
 
 // function clearInput() {
 //     refs.form.reset();

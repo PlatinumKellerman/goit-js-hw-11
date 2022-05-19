@@ -1,7 +1,8 @@
 export default function galleryInitializer() {
-    new SimpleLightbox('.gallery a',
+    let gallery = new SimpleLightbox('.gallery a',
             {
                 captionsData: "alt",
                 captionDelay: 300
-            });
+        });
+    gallery.refresh();
 }

@@ -1,3 +1,13 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #212121;
+  line-height: 1.5;
+}
+
 :root {
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --animation-duration: 250ms;
@@ -17,7 +27,8 @@
   margin-bottom: 0;
   flex-basis: calc((100% / 4) - 40px);
   margin: 20px;
-  
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 img {
@@ -29,4 +40,61 @@ img {
 
 .info {
   padding: 20px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 300px;
+  text-align: center;
+  border: 3px solid #cecbcb;
+  border-radius: 8px;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 5px;
+  margin-bottom: 20px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+input:focus,
+input:hover {
+  border: 3px solid #111111;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-color: tomato;
+  outline: 0;
+  color: #111111;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  width: 200px;
+  padding: 5px;
+  font-size: 20px;
+  border: 3px solid #cecbcb;
+  border-radius: 8px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.isActive:hover,
+.isActive:focus {
+  cursor: pointer;
+  border: 3px solid #111111;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-color: tomato;
+  outline: 0;
+  color: #111111;
+}
+
+.isHidden {
+  display: none;
 }

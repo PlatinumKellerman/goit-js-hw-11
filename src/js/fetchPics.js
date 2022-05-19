@@ -15,13 +15,12 @@ export const options = {
         options.params.q = inputValue;
         const BASE_URL = 'https://pixabay.com/api/';
         const response = await axios.get(BASE_URL, options);
-        if (response.data.hits.length > 0) {
-            Notify.success(`Hooray! We found ${response.data.totalHits} images.`)
-        }   else if (response.data.totalHits === 0) {
-            Notify.failure("Sorry, there are no images matching your search query. Please try again.")
-        }   else if (response.data.hits.length < 40) {
-            Notify.warning("We're sorry, but you've reached the end of search results.")
-        } 
+        if (response.data.hits.length && options.params.page === 1) {
+                Notify.success(`Hooray! We found ${response.data.totalHits} images.`)
+        }
+            else if (response.data.hits.length === 0) {
+                Notify.failure("Sorry, there are no images matching your search query. Please try again.")
+        }
         return response.data.hits
     }
 }

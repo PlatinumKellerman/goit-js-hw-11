@@ -16,10 +16,25 @@ export const options = {
         const BASE_URL = 'https://pixabay.com/api/';
         const response = await axios.get(BASE_URL, options);
         if (response.data.hits.length && options.params.page === 1) {
-                Notify.success(`Hooray! We found ${response.data.totalHits} images.`)
+                Notify.success(`Hooray! We found ${response.data.totalHits} images.`, {
+                    width: '400px',
+                    position: 'top-right',
+                    timeout: 1500,
+                    borderRadius: '20px',
+                    fontSize: '20px',
+                    cssAnimationStyle: 'zoom',
+                })
         }
             else if (response.data.hits.length === 0) {
-                Notify.failure("Sorry, there are no images matching your search query. Please try again.")
+            Notify.failure("Sorry, there are no images matching your search query. Please try again.",
+                {
+                    width: '400px',
+                    position: 'top-right',
+                    timeout: 1500,
+                    borderRadius: '20px',
+                    fontSize: '20px',
+                    cssAnimationStyle: 'zoom',
+                })
         }
         return response.data.hits
     }

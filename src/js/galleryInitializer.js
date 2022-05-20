@@ -4,5 +4,5 @@ export default function galleryInitializer() {
                 captionsData: "alt",
                 captionDelay: 300
         });
-    gallery.refresh();
+            gallery.refresh();
 }

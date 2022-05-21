@@ -18,6 +18,7 @@ refs.loadMoreButton.classList.add('isHidden');
 refs.searchButton.classList.add('isActive-button');
 refs.input.classList.add('search-input');
 
+// ----------------------------------------------------  Home Work with Infinite Scroll  -------------------------------------------------- //
 
 refs.form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(e) {
@@ -32,8 +33,6 @@ function onFormSubmit(e) {
         galleryInitializer();
     })
 } 
-
-// ----------------------------------------------------  Home Work with Infinite Scroll  -------------------------------------------------- //
 
 window.addEventListener('scroll', onPageBottomScroll);
 function onPageBottomScroll() {

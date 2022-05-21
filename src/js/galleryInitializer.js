@@ -1,3 +1,5 @@
+import SimpleLightbox from 'simplelightbox';
+
 export default function galleryInitializer() {
     let gallery = new SimpleLightbox('.gallery a',
             {

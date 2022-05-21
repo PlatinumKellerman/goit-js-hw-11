@@ -19,7 +19,6 @@ export const options = {
                 Notify.success(`Hooray! We found ${response.data.totalHits} images.`, {
                     width: '400px',
                     position: 'top-right',
-                    timeout: 1500,
                     borderRadius: '20px',
                     fontSize: '20px',
                     cssAnimationStyle: 'zoom',
@@ -30,7 +29,6 @@ export const options = {
                 {
                     width: '400px',
                     position: 'top-right',
-                    timeout: 1500,
                     borderRadius: '20px',
                     fontSize: '20px',
                     cssAnimationStyle: 'zoom',

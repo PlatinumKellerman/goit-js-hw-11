@@ -1,21 +1,24 @@
-import { Notify } from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import './css/searchPicsStyles.css'
-import { options } from './js/fetchPics.js';
-import galleryInitializer from './js/galleryInitializer.js'
-import createPicsMarkup from './js/createMarkup.js';
-import pageSmoothScrolling from './js/pageSmoothScrolling.js'
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import { options } from './js/fetchPics';
+import galleryInitializer from './js/galleryInitializer'
+import createPicsMarkup from './js/createMarkup';
+import pageSmoothScrolling from './js/pageSmoothScrolling'
+import './js/infiniteScroll';
 
 const refs = {
     form: document.querySelector('#search-form'),
     input: document.querySelector('input[name="searchQuery"]'),
-    button: document.querySelector('button'),
+    searchButton: document.querySelector('button'),
     loadMoreButton: document.querySelector('.load-more'),
     galleryWrapper: document.querySelector('.gallery')
 }
+
 refs.loadMoreButton.classList.add('isHidden');
-refs.button.classList.add('isActive');
+refs.searchButton.classList.add('isActive-button');
+refs.input.classList.add('search-input');
 
 refs.form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(e) {
@@ -28,7 +31,7 @@ function onFormSubmit(e) {
     refs.galleryWrapper.innerHTML = markup;
                 if (pictures.length === 40) {
                     refs.loadMoreButton.classList.remove('isHidden');
-                    refs.loadMoreButton.classList.add('isActive');
+                    refs.loadMoreButton.classList.add('isActive-button');
             }
     }).then(() => {
         galleryInitializer();
@@ -49,16 +52,14 @@ function onLoadMoreButtonClick(e) {
                 Notify.warning("We're sorry, but you've reached the end of search results.", {
                     width: '400px',
                     position: 'top-right',
-                    timeout: 1500,
                     borderRadius: '20px',
                     fontSize: '20px',
                     cssAnimationStyle: 'zoom',
                 })
-                refs.loadMoreButton.classList.remove('isActive');
+                refs.loadMoreButton.classList.remove('isActive-button');
             }
         }).then(() => {
             galleryInitializer();
             pageSmoothScrolling();
         })
 }
-

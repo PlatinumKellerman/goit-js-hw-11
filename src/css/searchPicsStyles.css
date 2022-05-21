@@ -31,7 +31,7 @@ body {
       1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-img {
+.created-img {
   display: block;
   height: 250px;
   width: 100%;
@@ -48,7 +48,7 @@ img {
   align-items: center;
 }
 
-input {
+.search-input {
   width: 300px;
   text-align: center;
   border: 3px solid #cecbcb;
@@ -61,8 +61,8 @@ input {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-input:focus,
-input:hover {
+.search-input:focus,
+.search-input:hover {
   border: 3px solid #111111;
   background-color: rgba(0, 0, 0, 0.15);
   border-color: tomato;
@@ -70,7 +70,7 @@ input:hover {
   color: #111111;
 }
 
-button {
+.isActive-button {
   display: flex;
   justify-content: center;
   margin-right: auto;
@@ -85,8 +85,8 @@ button {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.isActive:hover,
-.isActive:focus {
+.isActive-button:hover,
+.isActive-button:focus {
   cursor: pointer;
   border: 3px solid #111111;
   background-color: rgba(0, 0, 0, 0.15);

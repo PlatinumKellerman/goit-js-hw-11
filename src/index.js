@@ -6,7 +6,6 @@ import { options } from './js/fetchPics';
 import galleryInitializer from './js/galleryInitializer'
 import createPicsMarkup from './js/createMarkup';
 import pageSmoothScrolling from './js/pageSmoothScrolling'
-import './js/infiniteScroll';
 
 const refs = {
     form: document.querySelector('#search-form'),
@@ -36,9 +35,10 @@ function onFormSubmit(e) {
     }).then(() => {
         galleryInitializer();
     })
-    } 
+} 
 
 refs.loadMoreButton.addEventListener('click', onLoadMoreButtonClick);
+
 function onLoadMoreButtonClick(e) {
     e.preventDefault();
         const inputValue = refs.input.value; 
@@ -63,3 +63,55 @@ function onLoadMoreButtonClick(e) {
             pageSmoothScrolling();
         })
 }
+
+
+
+// refs.form.addEventListener('submit', onFormSubmit);
+// function onFormSubmit(e) {
+//     e.preventDefault();
+//     options.params.page = 1;
+//         const inputValue = refs.input.value;
+//         const fetchPicsResult = options.getPic(inputValue);
+//     fetchPicsResult.then(pictures => {
+//         const markup = createPicsMarkup(pictures);
+//     refs.galleryWrapper.innerHTML = markup;
+//     }).then(() => {
+//         galleryInitializer();
+//     })
+// } 
+
+
+
+// window.addEventListener('scroll', () => {
+//     setTimeout(() => {
+//         onPageBottomScroll();
+//    }, 2000);
+// });
+
+// function onPageBottomScroll() {
+//     const windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+//     if (windowRelativeBottom < document.documentElement.clientHeight + 100) {
+//         const inputValue = refs.input.value;
+//         options.params.page += 1;
+//         const fetchPicsResult = options.getPic(inputValue);
+//         fetchPicsResult.then(pictures => {
+//             const markup = createPicsMarkup(pictures);
+//             refs.galleryWrapper.insertAdjacentHTML("beforeend", markup);
+//             console.log(pictures.length);
+//             if (pictures.length < 40) {
+//                 Notify.warning("We're sorry, but you've reached the end of search results.", {
+//                     width: '400px',
+//                     position: 'top-right',
+//                     borderRadius: '20px',
+//                     fontSize: '20px',
+//                     cssAnimationStyle: 'zoom',
+//                 })
+//             }
+//         }).then(() => {
+//             galleryInitializer();
+//         })
+//     }
+// }
+
+
+

@@ -38,10 +38,6 @@ body {
   object-fit: cover;
 }
 
-.info {
-  padding: 20px;
-}
-
 .search-form {
   display: flex;
   flex-direction: column;
@@ -97,4 +93,35 @@ body {
 
 .isHidden {
   display: none;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20px;
+}
+.info-wrapper:first-child {
+  margin-left: 20px;
+}
+.info-wrapper:last-child {
+  margin-right: 0;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+b {
+  font-size: 14px;
 }

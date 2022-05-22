@@ -6,18 +6,26 @@ export default function createPicsMarkup(pictures) {
                     <img class="created-img" src="${picture.webformatURL}" alt="${picture.tags}" loading="lazy" />
                 </a>
                     <div class="info">
-                        <p class="info-item">
-                            <b>Likes ${picture.likes}</b>
-                        </p>
+                        <div class="info-wrapper"> 
                             <p class="info-item">
-                                <b>Views ${picture.views}</b>
-                            </p>
-                                <p class="info-item">
-                                    <b>Comments ${picture.comments}</b>
+                                    <b>Likes ${picture.likes}</b>
                                 </p>
+                        </div>
+                            <div class="info-wrapper"> 
+                                <p class="info-item">
+                                    <b>Views ${picture.views}</b>
+                                </p>
+                            </div>
+                                <div class="info-wrapper"> 
                                     <p class="info-item">
-                                        <b>Downloads ${picture.downloads}</b>
+                                        <b>Comments ${picture.comments}</b>
                                     </p>
+                                </div>
+                                    <div class="info-wrapper"> 
+                                        <p class="info-item">
+                                            <b>Downloads ${picture.downloads}</b>
+                                        </p>
+                                    </div>
                     </div>
             </div>`
     }).join('');

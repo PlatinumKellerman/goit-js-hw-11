@@ -68,7 +68,7 @@ function onPageBottomScroll() {
     }
 }
 
-// ----------------------------------------------------  Home Work with loadMoreButtom  -------------------------------------------------- //
+// ----------------------------------------------------  Home Work with loadMoreButton  -------------------------------------------------- //
 
 // refs.form.addEventListener('submit', onFormSubmit);
 // function onFormSubmit(e) {
